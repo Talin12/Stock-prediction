@@ -12,7 +12,6 @@ const Header = () => {
         localStorage.removeItem('refreshToken');
         setIsLoggedIn(false);
         console.log('Logged out successfully');
-        
         navigate('/login');
     }
     return(
@@ -20,7 +19,11 @@ const Header = () => {
             <Link className="navbar-brand text-light" to="/">Stock Prediction Portal</Link>
             <div>
                 { isLoggedIn ? (
-                    <button className="btn btn-info" onClick={handleLogout}>Logout</button>
+                    <>
+                        <Button text='Dashboard' class='btn-info' url='/dashboard'/>
+                        &nbsp;
+                        <button className="btn btn-info" onClick={handleLogout}>Logout</button>
+                    </>
                 ) : (    
                   <>
                     <Button text='Login' class='btn-outline-info' url='/login'/>
