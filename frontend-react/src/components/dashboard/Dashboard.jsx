@@ -1,13 +1,17 @@
+import axios from 'axios';
 import { useEffect } from 'react';
 import axiosInstance from '../../axiosinstance';
 
 const Dashboard = () => {
-
+    const accessToken = localStorage.getItem('accessToken');
     useEffect(() => {
         const fetchProtectedData = async () => {
             try {
                 const response = await axiosInstance.get('/protected-view');
-                console.log('Sucess: ', response.data);
+                headers: {
+                    Authorization: `Bearer ${accessToken}`
+                }
+                console.log('Protected data:', response.data);
             } catch (error) {
                 console.error('Error fetching protected data:', error);
             } 

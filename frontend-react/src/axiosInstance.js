@@ -17,7 +17,7 @@ axiosInstance.interceptors.request.use(
         if (accessToken) {
             config.headers['Authorization'] = `Bearer ${accessToken}`;
         }
-        console.log(config)
+        console.log('sdhbqe',config)
         return config;
     },
     function (error) {
