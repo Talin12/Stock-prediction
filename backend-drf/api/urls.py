@@ -4,6 +4,7 @@ from rest_framework_simplejwt.views import (
     TokenObtainPairView,
     TokenRefreshView,
 )
+from .views import StockPredictionView
 
 urlpatterns = [
     path('register/', UserViews.RegisterView.as_view()),
@@ -11,4 +12,8 @@ urlpatterns = [
     path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     
     path('protected-view', UserViews.ProtectedView.as_view()),
+
+    #Prediction API 
+
+    path('predict/', StockPredictionView.as_view(), name='stock_prediction'),
 ]
