@@ -1,5 +1,4 @@
 import axios from "axios";
-import { UNSAFE_createClientRoutesWithHMRRevalidationOptOut } from "react-router-dom";
 
 const baseURL = import.meta.env.VITE_BACKEND_BASE_API
 
