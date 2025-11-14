@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: stock-prediction-backend
+    env: python
+    plan: free
+    rootDir: backend-drf
+    buildCommand: "pip install -r requirements.txt && python manage.py migrate && python manage.py collectstatic --noinput"
+    startCommand: "gunicorn stock_prediction_main.wsgi:application --bind 0.0.0.0:$PORT"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.10
